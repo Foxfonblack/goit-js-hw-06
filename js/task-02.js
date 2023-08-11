@@ -9,19 +9,19 @@ const ingredients = [
 const listEl = document.querySelector("#ingredients")
 
 function createMarkUp(arr){
-  const fragment = document.createDocumentFragment()
- const el =  arr.map(item => {
-   const listItem = document.createElement('li');
-   listItem.textContent = item;
-    listItem.classList.add('item')
-
-return fragment 
-  });
-  return el;
-  
+const fragment = document.createDocumentFragment()
+arr.forEach(item => {
+  const liEl = document.createElement('li')
+  liEl.textContent = item
+  liEl.classList.add("item")
+  fragment.append(liEl)
+});
+  return fragment
 }
-const markUp = createMarkUp(ingredients)
-console.log(markUp)
 
+const markup = createMarkUp(ingredients)
+console.log(markup);
+
+listEl.append(markup)
 
 
